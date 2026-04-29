@@ -50,3 +50,29 @@ button:hover {
   font-weight: bold;
   padding-top:1rem;
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  button {
+    width: 80%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .counter {
+    font-size: 3rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
