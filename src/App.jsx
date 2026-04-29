@@ -4,7 +4,7 @@ import { db } from "./firebase";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(null);
 
   const counterRef = ref(db, "giladas");
 
@@ -30,7 +30,9 @@ function App() {
         +1 Gilada
       </button>
 
-      <div className="counter">{count}</div>
+      <div className="counter">
+        {count === null ? <span className="loading">...</span> : count}
+      </div>
     </div>
   );
 }
