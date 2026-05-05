@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { ref, onValue, runTransaction } from "firebase/database";
 import { db } from "./firebase";
+import MatapayoGame from "./MatapayoGame";
 import "./App.css";
+
+const counterRef = ref(db, "giladas");
 
 function App() {
   const [count, setCount] = useState(null);
-
-  const counterRef = ref(db, "giladas");
 
   useEffect(() => {
     const unsubscribe = onValue(counterRef, (snapshot) => {
@@ -24,15 +25,19 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Contador de Giladas</h1>
+      <section className="panel counter-panel">
+        <h1>Contador de Giladas</h1>
+        <button onClick={handleClick}>+1 Gilada</button>
 
-      <button onClick={handleClick}>
-        +1 Gilada
-      </button>
+        <div className="counter">
+          {count === null ? <span className="loading">...</span> : count}
+        </div>
+      </section>
 
-      <div className="counter">
-        {count === null ? <span className="loading">...</span> : count}
-      </div>
+      <section className="panel game-panel">
+        <h2>Matapayo</h2>
+        <MatapayoGame />
+      </section>
     </div>
   );
 }
