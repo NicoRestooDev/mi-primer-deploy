@@ -25,17 +25,7 @@ function App() {
 
   return (
     <div className="container">
-      <section className="panel counter-panel">
-        <h1>Contador de Giladas</h1>
-        <button onClick={handleClick}>+1 Gilada</button>
-
-        <div className="counter">
-          {count === null ? <span className="loading">...</span> : count}
-        </div>
-      </section>
-
       <section className="panel game-panel">
-        <h2>Matapayo</h2>
         <MatapayoGame />
       </section>
     </div>
